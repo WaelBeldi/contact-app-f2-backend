@@ -18,7 +18,11 @@ app.use(bodyParser.json())
 app.use("/api/contact", contactRouter)
 app.use("/api/auth", authRouter)
 
-const PORT = process.env.PORT;
+app.use("/", (req, res) => {
+  res.send("API is running")
+})
+
+const PORT = process.env.PORT || 5123
 
 app.listen(PORT, (err) => {
   err ? console.log(err)
